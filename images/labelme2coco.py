@@ -64,7 +64,7 @@ class labelme2coco(object):
     def category(self, label):
         category = {}
         category["supercategory"] = label[0]
-        category["id"] = len(self.categories)
+        category["id"] = len(self.categories) + 1 # Makes the index start at 1 instead of 0 for categories. Avoids the issue of 0 index being used for background by model (RCNN).
         category["name"] = label[0]
         return category
 
